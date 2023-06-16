@@ -62,7 +62,7 @@ window.dxp || (window.dxp = {});
         var script = document.createElement('script');
         script.type = 'text/javascript';
         script.async = true;
-        script.src = options.url.script + '/src/events/dxp-tracker.js';
+        script.src = '/src/events/dxp-tracker.js';
 
         if (script.addEventListener) {
             script.addEventListener('load', function (e) {
@@ -99,9 +99,11 @@ var tracker = {
         dxp.trackLink(links, event, properties);
     },
     onFormSubmit(formId, eventName, object){
-        var form = document.getElementById(formId);
-        console.log(form)
-        dxp.trackForm(form, eventName, object);
+        window.addEventListener("load", function () {
+            var form = document.getElementById(formId);
+            console.log('form submit', form)
+            dxp.trackForm(form, eventName, {formName: form.name});
+        });
     },
     onInitialize(options){
         dxp.initialize(options);
