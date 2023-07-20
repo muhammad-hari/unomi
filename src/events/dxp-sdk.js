@@ -1,8 +1,8 @@
 var options = {
-    scope: 'web-page',
+    scope: 'www.dxp.co.id',
     url: {
         api: 'http://localhost:8181',
-        script: 'http://localhost:5500',
+        script: 'http://localhost:3400',
     },
     source: {
         id: "ee2db027-46cf-4034-a759-79f1c930f80d"
@@ -10,7 +10,7 @@ var options = {
     initialPageProperties: {
         path: location.pathname + location.hash,
         pageInfo: {
-            pageID: "unomi-tracker-test-page",
+            pageID: "index",
             pageName: document.title,
             pagePath: document.location.pathname,
             destinationURL: document.location.origin + document.location.pathname,
@@ -18,9 +18,6 @@ var options = {
             categories: [],
             tags: []
         },
-        interests: {
-            "interest1": 1,
-        }
     }
 };
 
@@ -62,7 +59,7 @@ window.dxp || (window.dxp = {});
         var script = document.createElement('script');
         script.type = 'text/javascript';
         script.async = true;
-        script.src = options.url.script + '/src/events/dxp-tracker.js';
+        script.src = options.url.script + '/public/sdk/dxp-tracker.min.js';
 
         if (script.addEventListener) {
             script.addEventListener('load', function (e) {
@@ -99,9 +96,11 @@ var tracker = {
         dxp.trackLink(links, event, properties);
     },
     onFormSubmit(formId, eventName, object){
-        var form = document.getElementById(formId);
-        console.log(form)
-        dxp.trackForm(form, eventName, object);
+        window.addEventListener("load", function () {
+            var form = document.getElementById(formId);
+            console.log('form submit', form)
+            dxp.trackForm(form, eventName, {formName: form.name});
+        });
     },
     onInitialize(options){
         dxp.initialize(options);

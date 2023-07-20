@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Apache Unomi Web Tracker Test Page</title>
+    <title>Web Tracker Test Page</title>
 
     <meta name="Date-Revision-yyyymmdd" content="20180919"/>
     <meta http-equiv="Content-Language" content="en"/>
@@ -24,12 +24,18 @@
         }
     </style>
 
-    <script src="/src/events/dxp-sdk.js" type="text/javascript"></script>
+    <!-- <script src="/src/events/dxp-sdk.js" type="text/javascript"></script> -->
     
-    
+    <script type="text/javascript">
+        var options={scope:'www.dxp.co.id',url:{api:'http://localhost:8181',script:'http://localhost:3400',},source:{id:"ee2db027-46cf-4034-a759-79f1c930f80d"},initialPageProperties:{path:location.pathname+location.hash,pageInfo:{pageID:"index",pageName:document.title,pagePath:document.location.pathname,destinationURL:document.location.origin+document.location.pathname,language:"en",categories:[],tags:[]},}}
+        window.dxp || (window.dxp = {});
+        !function(){for(var e=[],t=["trackSubmit","trackClick","trackLink","trackForm","initialize","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","personalize"],n=function(t){return function(){var n=Array.prototype.slice.call(arguments);return n.unshift(t),e.push(n),window.dxp}},i=0;i<t.length;i++){var a=t[i];window.dxp[a]=n(a)}function r(t){for(dxp.initialize({"Apache Unomi":options});e.length>0;){var n=e.shift(),i=n.shift();dxp[i]&&dxp[i].apply(dxp,n)}}dxp.load=function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=options.url.script+"/public/sdk/dxp-tracker.min.js",e.addEventListener?e.addEventListener("load",(function(e){r()}),!1):e.onreadystatechange=function(){"complete"!==this.readyState&&"loaded"!==this.readyState||r(window.event)};var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)},document.addEventListener("DOMContentLoaded",dxp.load),dxp.page(options.initialPageProperties)}();
+        var tracker={onCustomEvent(eventName,object){dxp.track(eventName,object)},onClick(eventName,object){dxp.trackClick(eventName,object)},onLink(links,event,properties){dxp.trackLink(links,event,properties)},onFormSubmit(formId,eventName,object){window.addEventListener("load",function(){var form=document.getElementById(formId);console.log('form submit',form)
+        dxp.trackForm(form,eventName,{formName:form.name})})},onInitialize(options){dxp.initialize(options)},onInitPage(options){dxp.page(options)},onPageView(options){dxp.pageview(options)},onIdentify(eventName,object){dxp.identify(eventName,object)},}
+    </script>
 </head>
 <body>
-<h1>Apache Unomi Web Tracker Test Page</h1>
+<h1>Web Tracker Test Page</h1>
 
 <p>The line below this one will be personalized depending on whether you have been here for more or less than 5
     seconds. Try reload the page to see the changes.</p>
@@ -46,7 +52,7 @@
     The following form is an example of tracking form submissions with Apache Unomi's web tracker.
 </p>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     dxp.personalize({
         "id": "testPersonalization",
         "strategy": "matching-first",
@@ -66,15 +72,41 @@
         console.log(res);
         document.getElementById(res[0]).style.display = 'block';
     });
-</script>
-
+</script> -->
 
 <form id="testFormSubmit" action="#" name="testFormSubmit">
-    <label for="firstName">First name</label>
-    <input type="text" id="firstName" name="firstName" value="John"/>
+    <label for="user_id">user_id</label>
+    <input type="text" id="user_id" name="user_id" value="11011"/>
 
-    <label for="lastName">Last name</label>
-    <input type="text" id="lastName" name="lastName" value="Doe"/>
+    <label for="first_name">first_name</label>
+    <input type="text" id="first_name" name="first_name" value="jhon"/>
+
+    <label for="last_name">last_name</label>
+    <input type="text" id="last_name" name="last_name" value="due"/>
+
+    <label for="birth_date">birth_date</label>
+    <input type="text" id="birth_date" name="birth_date" placeholder="YYYY-MM-DD" value="2022-01-01"/>
+
+    <label for="gender">gender</label>
+    <input type="text" id="gender" name="gender" value="male"/>
+
+    <label for="company">company</label>
+    <input type="text" id="company" name="company" value="PT Angin Kencang"/>
+
+    <label for="country">country</label>
+    <input type="text" id="country" name="country" value="Indonesia"/>
+
+    <label for="city">city</label>
+    <input type="text" id="city" name="city" value="Jakarta"/>
+
+    <label for="region">region</label>
+    <input type="text" id="region" name="region" value="Jawa Barat"/>
+
+    <label for="postal_code">postal_code</label>
+    <input type="text" id="postal_code" name="postal_code" value="16914"/>
+
+    <label for="phone">phone</label>
+    <input type="text" id="phone" name="phone" value="+62812354121"/>
 
     <label for="email">Email</label>
     <input type="email" id="email" name="email" value="johndoe@acme.com"/>
@@ -82,16 +114,36 @@
     <input type="submit" name="submitButton" value="Submit"/>
 </form>
 
+<h3>LOGIN</h3>
+<form style="margin-top: 50px;">
+    <label for="uemail">Email</label>
+    <input type="uemail" id="uemail" name="uemail" value="johndoe@acme.com"/>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" value="123456"/>
+
+    <button type="submit" onclick="login()">LOGIN</button>
+</form>
+
 <script type="text/javascript">
-    window.addEventListener("load", function () {
-        console.log('helloo')
-        tracker.onFormSubmit('testFormSubmit', 'formSubmitted', {})
-    });
+    tracker.onFormSubmit('testFormSubmit', 'formSubmitted', {})
+
+    function login(){
+        alert('login success')
+        const email = document.getElementById('uemail');
+        alert(email.value)
+        tracker.onCustomEvent("sign in", {
+            email: email.value,
+            loggedIn: true,
+            action: 'login',
+        });
+    }
+
 </script>
 
 <!-- This is the example code that sends events to DXP. Events pinpoint what happened on your web-site -->
-<script type="text/javascript">
-    tracker.onCustomEvent("purchase-order", {"product": "Sun glasses - Badoo", "price": 13.45})
+<!-- <script type="text/javascript">
+    tracker.onCustomEvent("purchase-order", {"product": "Sun glasses - New Color", "price": 13.45})
     tracker.onCustomEvent("profile-interest", {"Vacation": 1})
     tracker.onCustomEvent("page-view", {"custom-data": 1});
     tracker.onCustomEvent("personal-data", {
@@ -101,7 +153,7 @@
         "email": "john.doe@gmail.com",
         "location": "Berlin/Germany"
     });
-</script>
+</script> -->
 
 </body>
 </html>
