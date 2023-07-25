@@ -1,0 +1,35 @@
+{
+    "itemId": "set_user_registration_info",
+    "scope": "www.ecommerce.co.id",
+    "version": 10,
+    "metadata": {
+      "id": "set_user_registration_info",
+      "name": "Copy the received contact info to the current profile",
+      "description": "Copies the contact info received in a custom event called 'contactInfoSubmitted' to the current profile"
+    },
+    "raiseEventOnlyOnceForSession": false,
+    "condition": {
+      "type": "eventTypeCondition",
+      "parameterValues": {
+        "eventTypeId": "sign-up"
+      }
+    },
+    "actions": [
+      {
+        "type": "setPropertyAction",
+        "parameterValues": {
+          "setPropertyName": "properties(registration_date)",
+          "setPropertyValue": "eventProperty::properties(registration_date)",
+          "setPropertyStrategy": "alwaysSet"
+        }
+      },
+      {
+        "type": "setPropertyAction",
+        "parameterValues": {
+          "setPropertyName": "properties(email)",
+          "setPropertyValue": "eventProperty::properties(email)",
+          "setPropertyStrategy": "alwaysSet"
+        }
+      }
+    ]
+  }

@@ -1,0 +1,34 @@
+{
+  "itemId": "active_users",
+  "scope": "www.ecommerce.co.id",
+  "version": 11,
+  "metadata": {
+    "id": "active_users",
+    "name": "Active User",
+    "scope": "www.ecommerce.co.id",
+    "description": "users who have logged in or interacted with the website in the last 2 days.",
+    "readOnly":true
+  },
+  "condition": {
+    "type": "booleanCondition",
+    "parameterValues": {
+      "operator": "and",
+      "subConditions": [
+        {
+          "type": "eventTypeCondition",
+          "parameterValues": {
+            "eventType": "sign in"
+          }
+        },
+        {
+           "type": "profilePropertyCondition",
+           "parameterValues": {
+            "propertyName": "properties.nbOfVisits",
+             "comparisonOperator": "greaterThan",
+             "propertyValueInteger": 3
+          }
+        }
+      ]
+    }
+  }
+}
