@@ -27,9 +27,9 @@
     <!-- <script src="/src/events/dxp-sdk.js" type="text/javascript"></script> -->
     
     <script type="text/javascript">
-        var options={scope:'www.dxp.co.id',url:{api:'http://localhost:8181',script:'http://localhost:3400',},source:{id:"ee2db027-46cf-4034-a759-79f1c930f80d"},initialPageProperties:{path:location.pathname+location.hash,pageInfo:{pageID:"index",pageName:document.title,pagePath:document.location.pathname,destinationURL:document.location.origin+document.location.pathname,language:"en",categories:[],tags:[]},}}
+        var options={scope:'www.dxp.co.id',url:{api:'http://103.175.216.183:8181',script:'http://localhost:5500',},source:{id:"ee2db027-46cf-4034-a759-79f1c930f80d"},initialPageProperties:{path:location.pathname+location.hash,pageInfo:{pageID:"index",pageName:document.title,pagePath:document.location.pathname,destinationURL:document.location.origin+document.location.pathname,language:"en",categories:[],tags:[]},}}
         window.dxp || (window.dxp = {});
-        !function(){for(var e=[],t=["trackSubmit","trackClick","trackLink","trackForm","initialize","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","personalize"],n=function(t){return function(){var n=Array.prototype.slice.call(arguments);return n.unshift(t),e.push(n),window.dxp}},i=0;i<t.length;i++){var a=t[i];window.dxp[a]=n(a)}function r(t){for(dxp.initialize({"Apache Unomi":options});e.length>0;){var n=e.shift(),i=n.shift();dxp[i]&&dxp[i].apply(dxp,n)}}dxp.load=function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=options.url.script+"/public/sdk/dxp-tracker.min.js",e.addEventListener?e.addEventListener("load",(function(e){r()}),!1):e.onreadystatechange=function(){"complete"!==this.readyState&&"loaded"!==this.readyState||r(window.event)};var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)},document.addEventListener("DOMContentLoaded",dxp.load),dxp.page(options.initialPageProperties)}();
+        !function(){for(var e=[],t=["trackSubmit","trackClick","trackLink","trackForm","initialize","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","personalize"],n=function(t){return function(){var n=Array.prototype.slice.call(arguments);return n.unshift(t),e.push(n),window.dxp}},i=0;i<t.length;i++){var a=t[i];window.dxp[a]=n(a)}function r(t){for(dxp.initialize({"Apache Unomi":options});e.length>0;){var n=e.shift(),i=n.shift();dxp[i]&&dxp[i].apply(dxp,n)}}dxp.load=function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=options.url.script+"/src/events/dxp-tracker.js",e.addEventListener?e.addEventListener("load",(function(e){r()}),!1):e.onreadystatechange=function(){"complete"!==this.readyState&&"loaded"!==this.readyState||r(window.event)};var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)},document.addEventListener("DOMContentLoaded",dxp.load),dxp.page(options.initialPageProperties)}();
         var tracker={onCustomEvent(eventName,object){dxp.track(eventName,object)},onClick(eventName,object){dxp.trackClick(eventName,object)},onLink(links,event,properties){dxp.trackLink(links,event,properties)},onFormSubmit(formId,eventName,object){window.addEventListener("load",function(){var form=document.getElementById(formId);console.log('form submit',form)
         dxp.trackForm(form,eventName,{formName:form.name})})},onInitialize(options){dxp.initialize(options)},onInitPage(options){dxp.page(options)},onPageView(options){dxp.pageview(options)},onIdentify(eventName,object){dxp.identify(eventName,object)},}
     </script>
@@ -142,7 +142,7 @@
 </script>
 
 <!-- This is the example code that sends events to DXP. Events pinpoint what happened on your web-site -->
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     tracker.onCustomEvent("purchase-order", {"product": "Sun glasses - New Color", "price": 13.45})
     tracker.onCustomEvent("profile-interest", {"Vacation": 1})
     tracker.onCustomEvent("page-view", {"custom-data": 1});
@@ -153,7 +153,7 @@
         "email": "john.doe@gmail.com",
         "location": "Berlin/Germany"
     });
-</script> -->
+</script>
 
 </body>
 </html>
