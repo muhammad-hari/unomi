@@ -1,0 +1,291 @@
+Checkout Started
+{
+ "id": "09121",
+ "orderId": "no90012",
+ "currency": "idr",
+ "value": 10000,
+ "coupon": "GHKHJK"
+}
+
+Checkout Completed
+{
+ "orderId": "1001231",
+ "value": 10000
+}
+
+Checkout Status
+{
+ "orderId": "1001231",
+ "status": "string"
+}
+
+Sign-In
+{
+ "email": "hari@mail.com",
+ "login": "hari",
+ "firstname": "hari18",
+ "lastname": "helo"
+}
+
+Sign-Up
+{
+ "email": "string",
+ "login": "string",
+ "firstname": "string",
+ "lastname": "string",
+ "custom": "object"
+}
+
+Product Added To Basket
+{
+ "id": "string",
+ "name": "string",
+ "sku": "string",
+ "category": "string",
+ "brand": "string",
+ "variant": {
+  "name": "string",
+  "color": "string",
+  "size": "string"
+ },
+ "price": "float",
+ "quantity": "int",
+ "url": {
+  "image": "url",
+  "page": "url"
+ }
+}
+
+Product Removed From Basket
+{
+ "id": "string",
+ "name": "string",
+ "sku": "string",
+ "category": "string",
+ "brand": "string",
+ "variant": {
+  "name": "string",
+  "color": "string",
+  "size": "string"
+ },
+ "price": "float",
+ "quantity": "int",
+ "url": {
+  "image": "url",
+  "page": "url"
+ }
+}
+
+Product Details Page View
+{
+ "id": "string",
+ "name": "string",
+ "sku": "string",
+ "category": "string",
+ "brand": "string",
+ "variant": {
+  "name": "string",
+  "color": "string",
+  "size": "string"
+ },
+ "price": 0,
+ "url": {
+  "image": "url",
+  "page": "url"
+ }
+}
+
+Profile Update
+{
+ "pii": {
+  "firstname": "string",
+  "lastname": "string",
+  "name": "string",
+  "birthday": "2010-01-01 00:00:00",
+  "language": {
+   "native": "string",
+   "spoken": [
+    "string"
+   ]
+  },
+  "gender": "string",
+  "education": {
+   "level": "string"
+  },
+  "civil": {
+   "status": "string"
+  },
+  "attributes": {
+   "height": 0,
+   "weight": 0,
+   "shoe_number": 0
+  }
+ },
+ "identifier": {
+  "id": "string",
+  "token": "string",
+  "passport": "string",
+  "credit_card": "string",
+  "coupons": [
+   "string"
+  ],
+  "badge": "string"
+ },
+ "contact": {
+  "email": "string",
+  "phone": "string",
+  "app": {
+   "whatsapp": "string",
+   "discord": "string",
+   "slack": "string",
+   "twitter": "string",
+   "telegram": "string",
+   "wechat": "string",
+   "viber": "string",
+   "signal": "string"
+  },
+  "address": {
+   "town": "string",
+   "county": "string",
+   "country": "string",
+   "postcode": "string",
+   "street": "string",
+   "other": "string"
+  }
+ },
+ "media": {
+  "image": "string",
+  "webpage": "string",
+  "social": {
+   "twitter": "string",
+   "facebook": "string",
+   "youtube": "string",
+   "instagram": "string",
+   "tiktok": "string",
+   "linkedin": "string",
+   "reddit": "string"
+  }
+ },
+ "job": {
+  "position": "string",
+  "salary": 10,
+  "type": "string",
+  "company": {
+   "name": "string",
+   "size": 100,
+   "segment": "string",
+   "country": "string"
+  },
+  "department": "string"
+ },
+ "preferences": {
+  "purchases": [
+   "string"
+  ],
+  "colors": [
+   "string"
+  ],
+  "sizes": [
+   "string"
+  ],
+  "devices": [
+   "string"
+  ],
+  "channels": [
+   "string"
+  ],
+  "payments": [
+   "string"
+  ],
+  "brands": [
+   "string"
+  ],
+  "fragrances": [
+   "string"
+  ],
+  "services": [
+   "string"
+  ],
+  "other": [
+   "string"
+  ]
+ },
+ "loyalty": {
+  "codes": [
+   "string"
+  ],
+  "card": {
+   "id": "string",
+   "name": "string",
+   "issuer": "string",
+   "expires": "2022-01-01 00:00:00",
+   "points": 0
+  }
+ }
+}
+
+Identification
+{
+ "firstname": "string",
+ "lastname": "string",
+ "phone": "string",
+ "id": "string",
+ "token": "string",
+ "passport": "string",
+ "login": "string",
+ "credit_card": "string",
+ "coupon": "string",
+ "badge": "string",
+ "email": "string",
+ "twitter": "string",
+ "whatsapp": "string",
+ "discord": "string",
+ "slack": "string",
+ "telegram": "string",
+ "wechat": "string",
+ "viber": "string",
+ "signal": "string"
+}
+
+
+{
+  "offset" : 0,
+  "limit" : 10,
+  "condition": {
+    "type": "booleanCondition",
+    "parameterValues": {
+        "operator": "and",
+        "subConditions": [
+            {
+            "type": "profilePropertyCondition",
+            "parameterValues": {
+                "propertyName": "properties.lastVisit",
+                "comparisonOperator": "greaterThanOrEqualTo",
+                "propertyValueDateExpr": "now-1d/d"
+            }
+          }
+        ]
+    }
+  }
+}
+
+{
+  "offset" : 0,
+  "limit" : 10,
+  "condition": {
+    "type": "booleanCondition",
+    "parameterValues": {
+        "operator": "and",
+        "subConditions": [
+            {
+            "type": "profilePropertyCondition",
+            "parameterValues": {
+                "propertyName": "properties.lastVisit",
+                "comparisonOperator": "between",
+                "propertyValuesDate": ["2023-08-15T07:49:20Z", "2023-08-15T23:59:59Z"]
+            }
+          }
+        ]
+    }
+  }
+}

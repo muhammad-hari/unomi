@@ -1,0 +1,154 @@
+{
+    "itemId": "rule_users_checkout",
+    "scope": "www.ecommerce.co.id",
+    "version": 1,
+    "metadata": {
+        "scope": "www.ecommerce.co.id",
+        "id": "rule_users_checkout",
+        "name": "product checkout event",
+        "description": "Copies the event info received in a custom event called 'product checkout' to the current profile"
+    },
+    "raiseEventOnlyOnceForSession": false,
+    "condition": {
+        "type": "eventTypeCondition",
+        "parameterValues": {
+        "eventTypeId": "checkout"
+        }
+    },
+    "actions": [
+        {
+            "parameterValues": {
+                "setPropertyName": "properties.checkout.date",
+                "setPropertyValue": "now",
+                "storeInSession": false
+            },
+            "type": "setPropertyAction"
+        },
+        {
+            "type": "incrementPropertyAction",
+            "parameterValues": {
+                "propertyName": "checkout.count"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.checkout.ec.order.id",
+                "setPropertyValue": "eventProperty::properties.data.id",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.checkout.ec.order.currency",
+                "setPropertyValue": "eventProperty::properties.data.currency",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+         {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.checkout.ec.order.paymentMethod",
+                "setPropertyValue": "eventProperty::properties.data.payment_method",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+         {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.checkout.ec.order.status",
+                "setPropertyValue": "eventProperty::properties.data.status",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.checkout.ec.order.total",
+                "setPropertyValue": "eventProperty::properties.data.total",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+         {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.email",
+                "setPropertyValue": "eventProperty::properties.data.billing.email",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.firstName",
+                "setPropertyValue": "eventProperty::properties.data.billing.first_name",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.lastName",
+                "setPropertyValue": "eventProperty::properties.data.billing.last_name",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+         {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.city",
+                "setPropertyValue": "eventProperty::properties.data.billing.city",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+         {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.state",
+                "setPropertyValue": "eventProperty::properties.data.billing.state",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.country",
+                "setPropertyValue": "eventProperty::properties.data.billing.countryName",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.phoneNumber",
+                "setPropertyValue": "eventProperty::properties.data.billing.phone",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.address",
+                "setPropertyValue": "eventProperty::properties.data.billing.address_1",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+         {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.zipCode",
+                "setPropertyValue": "eventProperty::properties.data.billing.postcode",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+         {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.company",
+                "setPropertyValue": "eventProperty::properties.data.billing.company",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        }
+    ]
+    }

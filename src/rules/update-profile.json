@@ -1,0 +1,33 @@
+{
+    "itemId": "rule_users_updateProfile",
+    "scope": "www.ecommerce.co.id",
+    "version": 10,
+    "metadata": {
+        "id": "rule_users_rule_users_updateProfile",
+        "name": "update profile event",
+        "description": "Copies the event info received in a custom event called 'update profile' to the current profile"
+    },
+    "raiseEventOnlyOnceForSession": false,
+    "condition": {
+        "type": "eventTypeCondition",
+        "parameterValues": {
+        "eventTypeId": "update profile"
+        }
+    },
+    "actions": [
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "UpdateProfile.date",
+                "setPropertyValue": "now",
+                "storeInSession": false
+            }
+        },
+        {
+            "type": "incrementPropertyAction",
+            "parameterValues": {
+                "propertyName": "UpdateProfile.count"
+            }
+        }
+    ]
+    }

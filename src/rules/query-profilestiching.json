@@ -1,0 +1,27 @@
+{
+    "offset" : 0,
+    "limit" : 10,
+    "condition": {
+      "type": "booleanCondition",
+      "parameterValues": {
+          "operator": "and",
+          "subConditions": [
+              {
+                  "type": "profilePropertyCondition",
+                  "parameterValues": {
+                      "propertyName": "systemProperties.mergeIdentifier",
+                      "comparisonOperator": "exists"
+                  }
+              },
+              {
+                  "type": "profilePropertyCondition",
+                  "parameterValues": {
+                      "propertyName": "segments",
+                      "comparisonOperator": "in",
+                      "propertyValues": ["segment_mahadir"]
+                  }
+              }
+          ]
+      }
+    }
+}

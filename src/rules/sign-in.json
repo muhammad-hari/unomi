@@ -1,0 +1,50 @@
+{
+    "itemId": "rule_users_signin",
+    "scope": "www.ecommerce.co.id",
+    "version": 10,
+    "metadata": {
+        "id": "rule_users_signin",
+        "scope": "www.ecommerce.co.id",
+        "name": "sign in event",
+        "description": "Copies the event info received in a custom event called 'sign in' to the current profile"
+    },
+    "raiseEventOnlyOnceForSession": false,
+    "condition": {
+        "type": "eventTypeCondition",
+        "parameterValues": {
+        "eventTypeId": "sign-in"
+        }
+    },
+    "actions": [
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.sign-in.email",
+                "setPropertyValue": "eventProperty::properties.email",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.sign-in.username",
+                "setPropertyValue": "eventProperty::properties.email",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.sign-in.date",
+                "setPropertyValue": "now",
+                "storeInSession": false
+            }
+        },
+        {
+            "type": "incrementPropertyAction",
+            "parameterValues": {
+                "propertyName": "sign-in.count"
+            }
+        }
+    ]
+    }

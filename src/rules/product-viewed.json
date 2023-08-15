@@ -1,0 +1,66 @@
+{
+    "itemId": "rule_users_productInterest",
+    "scope": "www.ecommerce.co.id",
+    "version": 10,
+    "metadata": {
+        "scope": "www.ecommerce.co.id",
+        "id": "rule_users_rule_users_productInterest",
+        "name": "product interest event",
+        "description": "Copies the event info received in a custom event called 'product interest' to the current profile"
+    },
+    "raiseEventOnlyOnceForSession": false,
+    "condition": {
+        "type": "eventTypeCondition",
+        "parameterValues": {
+        "eventTypeId": "product interest"
+        }
+    },
+    "actions": [
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.product interest.date",
+                "setPropertyValue": "now",
+                "storeInSession": false
+            }
+        },
+        {
+            "type": "incrementPropertyAction",
+            "parameterValues": {
+                "propertyName": "product interest.count"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.product interest.ec.product.id",
+                "setPropertyValue": "eventProperty::properties.data.id",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.product interest.ec.product.name",
+                "setPropertyValue": "eventProperty::properties.data.name",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.product interest.ec.product.sku",
+                "setPropertyValue": "eventProperty::properties.data.sku",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.product interest.ec.product.price",
+                "setPropertyValue": "eventProperty::properties.data.price",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        }
+    ]
+    }
