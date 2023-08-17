@@ -1,18 +1,18 @@
 {
-    "itemId": "rule_users_signin",
+    "itemId": "ecommerce_signin_rules",
     "scope": "www.ecommerce.co.id",
     "version": 10,
     "metadata": {
-        "id": "rule_users_signin",
+        "id": "ecommerce_signin_rules",
         "scope": "www.ecommerce.co.id",
-        "name": "sign in event",
-        "description": "Copies the event info received in a custom event called 'sign in' to the current profile"
+        "name": "sign in",
+        "description": ""
     },
     "raiseEventOnlyOnceForSession": false,
     "condition": {
         "type": "eventTypeCondition",
         "parameterValues": {
-        "eventTypeId": "sign-in"
+        "eventTypeId": "SignIn"
         }
     },
     "actions": [
@@ -27,7 +27,15 @@
         {
             "type": "setPropertyAction",
             "parameterValues": {
-                "setPropertyName": "properties.sign-in.email",
+                "setPropertyName": "properties.phoneNumber",
+                "setPropertyValue": "eventProperty::properties.phoneNumber",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.SignIn.email",
                 "setPropertyValue": "eventProperty::properties.email",
                 "setPropertyStrategy": "alwaysSet"
             }
@@ -35,15 +43,23 @@
         {
             "type": "setPropertyAction",
             "parameterValues": {
-                "setPropertyName": "properties.sign-in.username",
-                "setPropertyValue": "eventProperty::properties.email",
+                "setPropertyName": "properties.SignIn.phoneNumber",
+                "setPropertyValue": "eventProperty::properties.phoneNumber",
                 "setPropertyStrategy": "alwaysSet"
             }
         },
         {
             "type": "setPropertyAction",
             "parameterValues": {
-                "setPropertyName": "properties.sign-in.date",
+                "setPropertyName": "properties.SignIn.isLoggedIn",
+                "setPropertyValue": "eventProperty::properties.isLoggedIn",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.SignIn.date",
                 "setPropertyValue": "now",
                 "storeInSession": false
             }
@@ -51,7 +67,7 @@
         {
             "type": "incrementPropertyAction",
             "parameterValues": {
-                "propertyName": "sign-in.count"
+                "propertyName": "SignIn.count"
             }
         }
     ]

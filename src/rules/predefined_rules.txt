@@ -1,0 +1,157 @@
+// Sign Up (register) (dipanggil jika kondisinya telah berhasil sign up)
+xxx.onCustomEvent("SignUp", {
+    email: "hi@mail.com", // jika tidak ada email gunakan phone number
+    phoneNumber: "+628128141", 
+    firstName: "",
+    lastName: "",
+    company: "", // jika ada masukan
+    gender: "", // jika ada masukan
+    birthDate: "", // jika ada masukan (yyyy-MM-dd)
+    action: "register",
+})
+
+// Sign In (kondisinya ketika button sign in diklik)
+xxx.onCustomEvent("SignIn", {
+    email: "hi@mail.com", // jika tidak ada email gunakan phone number
+    phoneNumber: "+628128141", 
+    isLoggedIn: true, // set false, jika gagal login
+    action: "login",
+
+})
+
+// Identify (kondisinya jika berhasil sign in, data2 lainnya bisa dipanggil seperti hak akses dsb jika ada)
+xxx.onIdentify("Identify", {
+    email: "hi@mail.com", // jika tidak ada email gunakan phone number
+    phoneNumber: "+628128141",
+    displayName: "", 
+    firstName: "",
+    lastName: "",
+    role: "IT" // jika ada
+})
+
+// Update Profile
+xxx.onCustomEvent("UpdateProfile", {
+    displayName: "", 
+    firstName: "",
+    lastName: "",
+    email: "hi@mail.com", // jika tidak ada email gunakan phone number
+    phoneNumber: "+628128141",
+
+    // dibawah ini jika ada datanya silakan diset
+    gender: "", // male or female
+    birthDate: "", // yyyy-MM-dd
+    age: 12,
+    maritalStatus: "",
+    country: "",
+    city: "",
+    region: "",
+    address: "",
+    zipCode: "",
+    facebookId: "",
+    linkedInId: "",
+    googleId: "",
+    twitterId: "",
+    company: "",
+    jobTitle: "",
+    income: "",
+    point: "",
+})
+
+
+// Track user search for product
+xxx.onCustomEvent("Searched", {
+    keyword: "Apple TV, iPhone, Shoes",
+    category: "Apparel, Mobile Phones, Exercise & Fitness", 
+    filters: "Color, Size, Price", 
+    resultCount: 20, 
+})
+
+
+// Track products being viewed (product detail)
+xxx.onCustomEvent("ProductViewed", {
+    id: "121012", 
+    name: "Canon EOS Rebel Camera, iPhone XR, OnePlus 7 Pro", 
+    category: "Apparel, Mobile Phones, Exercise & Fitness", 
+    price: 100, 
+    currency: "IDR", // sesuai currencynya
+    brand: "Canon",
+    inStock: true, // jika ada masukan
+    sellerID: "abasa123", // jika ada masukan
+    sellerName: "Abasa Shop"
+})
+
+// Track categories being browsed (hanya ketika user memilih produk berdasarkan kategori)
+xxx.onCustomEvent("CategoryViewed", {
+    id: "121012", 
+    name: " Apparel, Mobile Phones, Exercise & Fitness", 
+    itemCount: 100,
+})
+
+
+// Track product has been added to wishlist
+xxx.onCustomEvent("AddedtoWishlist", {
+    id: "121012", 
+    name: "Canon EOS Rebel Camera, iPhone XR, OnePlus 7 Pro", 
+    category: "Camera", 
+    price: 100, 
+})
+
+// Track intent to purchase / item added to cart
+xxx.onCustomEvent("AddedToCart", {
+    id: "121012", 
+    name: "Canon EOS Rebel Camera, iPhone XR, OnePlus 7 Pro", 
+    category: "Apparel, Mobile Phones, Exercise & Fitness", 
+    price: 100, 
+    currency: "IDR", // sesuai currencynya
+    inStock: true, // jika ada masukan
+    sellerID: "abasa123", // jika ada masukan
+    sellerName: "Abasa Shop"
+})
+
+// Track if a user is using any coupon code or other offer to complete the purchase
+xxx.onCustomEvent("OfferAvailed", {
+    offer: "Harbolnas", 
+    description: "20% off football acc", 
+    discount: 100, // total diskon 
+    currency: "IDR", // sesuai currencynya
+    status: "success", // success or failed
+})
+
+// Track the start of the checkout process, biasanya ketika user masuk ke menu process to check out tapi statusnya blm complete
+xxx.onCustomEvent("CheckoutStarted", {
+    totalPrice: 100, 
+    totalQuantity: 2,
+    currency: "IDR", // sesuai currencynya
+})
+
+// 	Track successful purchase, dipanggil hanya ketika sukses
+xxx.onCustomEvent("CheckoutCompleted", {
+    transactionID: "INV000123", 
+    totalPrice: 250,
+    totalQuantity: 2,
+    currency: "IDR", // sesuai currencynya
+    paymentMethod: "VA", // Credit Card, Debit Card, Wallet, Paypal, Internet Banking or VA
+    sellerID: "abasa123", // jika ada masukan
+    sellerName: "Abasa Shop",
+    shippingCountry: "ID",
+    shippingCity: "bogor",
+    shippingRegion: "Jawa Barat",
+    products: [
+        {
+            id: "121012", 
+            name: "Canon EOS Rebel Camera", 
+            category: "Apparel, Mobile Phones, Exercise & Fitness", 
+            price: 100, 
+            currency: "IDR", // sesuai currencynya
+            quantity: 1,
+        },
+        {
+            id: "121013", 
+            name: "iPhone XR, OnePlus 7 Pro", 
+            category: "Apparel, Mobile Phones, Exercise & Fitness", 
+            price: 150, 
+            currency: "IDR", // sesuai currencynya
+            quantity: 1,
+        }
+    ]
+})

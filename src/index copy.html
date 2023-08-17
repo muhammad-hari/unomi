@@ -139,7 +139,7 @@
     <button type="submit" onclick="login()">LOGIN</button>
 </form> -->
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function login(){
         alert('login success')
         const email = document.getElementById('uemail');
@@ -151,24 +151,22 @@
         });
     }
 
-        tracker.onCustomEvent("sign up", {
+        tracker.onCustomEvent("sign-up", {
             email: email.value,
             loggedIn: true,
             action: 'sign up',
         });
 
-</script>
+</script> -->
 
 <!-- This is the example code that sends events to DXP. Events pinpoint what happened on your web-site -->
 <script type="text/javascript">
-    tracker.onCustomEvent("checkout", 
-    { 
-            "email": "mahadir@mail.com",
-			"loggedIn": true,
-			"action": "checkout"
+    tracker.onCustomEvent("SignIn", {
+        email: "hari@mail.com", // jika tidak ada email gunakan phone number
+        phoneNumber: "+628128141", 
+        isLoggedIn: true, // set false, jika gagal login
+        action: "login",
     })
-
-
 
 </script>
 

@@ -1,0 +1,76 @@
+{
+    "itemId": "easybuy_identify_rules",
+    "scope": "EasyBuy",
+    "version": 10,
+    "metadata": {
+        "id": "easybuy_identify_rules",
+        "scope": "EasyBuy",
+        "name": "identify",
+        "description": ""
+    },
+    "raiseEventOnlyOnceForSession": false,
+    "condition": {
+        "type": "eventTypeCondition",
+        "parameterValues": {
+        "eventTypeId": "Identify"
+        }
+    },
+    "actions": [
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.email",
+                "setPropertyValue": "eventProperty::properties.email",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.phoneNumber",
+                "setPropertyValue": "eventProperty::properties.phoneNumber",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.firstName",
+                "setPropertyValue": "eventProperty::properties.firstName",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.lastName",
+                "setPropertyValue": "eventProperty::properties.lastName",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.displayName",
+                "setPropertyValue": "eventProperty::properties.displayName",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.role",
+                "setPropertyValue": "eventProperty::properties.role",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.Identify.date",
+                "setPropertyValue": "now",
+                "storeInSession": false
+            }
+        }
+    ]
+    }

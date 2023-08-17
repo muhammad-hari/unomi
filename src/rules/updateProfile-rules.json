@@ -1,0 +1,204 @@
+{
+    "itemId": "easybuy_updateProfile_rules",
+    "scope": "EasyBuy",
+    "version": 10,
+    "metadata": {
+        "id": "easybuy_updateProfile_rules",
+        "scope": "EasyBuy",
+        "name": "update profile",
+        "description": ""
+    },
+    "raiseEventOnlyOnceForSession": false,
+    "condition": {
+        "type": "eventTypeCondition",
+        "parameterValues": {
+        "eventTypeId": "UpdateProfile"
+        }
+    },
+    "actions": [
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.email",
+                "setPropertyValue": "eventProperty::properties.email",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.phoneNumber",
+                "setPropertyValue": "eventProperty::properties.phoneNumber",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.firstName",
+                "setPropertyValue": "eventProperty::properties.firstName",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.lastName",
+                "setPropertyValue": "eventProperty::properties.lastName",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.displayName",
+                "setPropertyValue": "eventProperty::properties.displayName",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.gender",
+                "setPropertyValue": "eventProperty::properties.gender",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.birthDate",
+                "setPropertyValue": "eventProperty::properties.birthDate",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.age",
+                "setPropertyValue": "eventProperty::properties.age",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.maritalStatus",
+                "setPropertyValue": "eventProperty::properties.maritalStatus",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.country",
+                "setPropertyValue": "eventProperty::properties.country",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.city",
+                "setPropertyValue": "eventProperty::properties.city",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.region",
+                "setPropertyValue": "eventProperty::properties.region",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.address",
+                "setPropertyValue": "eventProperty::properties.address",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.zipCode",
+                "setPropertyValue": "eventProperty::properties.zipCode",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.facebookId",
+                "setPropertyValue": "eventProperty::properties.facebookId",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.linkedInId",
+                "setPropertyValue": "eventProperty::properties.linkedInId",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.googleId",
+                "setPropertyValue": "eventProperty::properties.googleId",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.twitterId",
+                "setPropertyValue": "eventProperty::properties.twitterId",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.company",
+                "setPropertyValue": "eventProperty::properties.company",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.jobTitle",
+                "setPropertyValue": "eventProperty::properties.jobTitle",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.income",
+                "setPropertyValue": "eventProperty::properties.income",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.point",
+                "setPropertyValue": "eventProperty::properties.point",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.UpdateProfile.date",
+                "setPropertyValue": "now",
+                "storeInSession": false
+            }
+        }
+    ]
+    }

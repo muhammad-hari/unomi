@@ -1,0 +1,84 @@
+{
+    "itemId": "easybuy_signup_rules",
+    "scope": "EasyBuy",
+    "version": 10,
+    "metadata": {
+        "id": "easybuy_signup_rules",
+        "scope": "EasyBuy",
+        "name": "sign up",
+        "description": ""
+    },
+    "raiseEventOnlyOnceForSession": false,
+    "condition": {
+        "type": "eventTypeCondition",
+        "parameterValues": {
+        "eventTypeId": "SignUp"
+        }
+    },
+    "actions": [
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.email",
+                "setPropertyValue": "eventProperty::properties.email",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.phoneNumber",
+                "setPropertyValue": "eventProperty::properties.phoneNumber",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.firstName",
+                "setPropertyValue": "eventProperty::properties.firstName",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.lastName",
+                "setPropertyValue": "eventProperty::properties.lastName",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.company",
+                "setPropertyValue": "eventProperty::properties.company",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.gender",
+                "setPropertyValue": "eventProperty::properties.gender",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.birthDate",
+                "setPropertyValue": "eventProperty::properties.birthDate",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.SignUp.date",
+                "setPropertyValue": "now",
+                "storeInSession": false
+            }
+        }
+    ]
+    }

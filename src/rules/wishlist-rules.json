@@ -1,0 +1,66 @@
+{
+    "itemId": "easybuy_AddedtoWishlist_rules",
+    "scope": "EasyBuy",
+    "version": 10,
+    "metadata": {
+        "id": "easybuy_AddedtoWishlist_rules",
+        "scope": "EasyBuy",
+        "name": "added to wishlist",
+        "description": ""
+    },
+    "raiseEventOnlyOnceForSession": false,
+    "condition": {
+        "type": "eventTypeCondition",
+        "parameterValues": {
+        "eventTypeId": "AddedtoWishlist"
+        }
+    },
+    "actions": [
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.AddedtoWishlist.id",
+                "setPropertyValue": "eventProperty::properties.id",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.AddedtoWishlist.name",
+                "setPropertyValue": "eventProperty::properties.name",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.AddedtoWishlist.category",
+                "setPropertyValue": "eventProperty::properties.category",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.AddedtoWishlist.price",
+                "setPropertyValue": "eventProperty::properties.price",
+                "setPropertyStrategy": "alwaysSet"
+            }
+        },
+        {
+            "type": "setPropertyAction",
+            "parameterValues": {
+                "setPropertyName": "properties.AddedtoWishlist.date",
+                "setPropertyValue": "now",
+                "storeInSession": false
+            }
+        },
+        {
+            "type": "incrementPropertyAction",
+            "parameterValues": {
+                "propertyName": "AddedtoWishlist.count"
+            }
+        }
+    ]
+    }
